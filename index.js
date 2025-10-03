@@ -50,7 +50,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // === JWT Middleware ===
 const verifyToken = (req, res, next) => {
@@ -124,7 +124,7 @@ app.post('/login', async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );
-        console.log(process.env.JWT_SECRET);
+        console.log(token);
 
         res.cookie('token', token, {
             httpOnly: true,
