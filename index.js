@@ -103,7 +103,7 @@ app.post('/register', async (req, res) => {
         if (error.code === '23505') {
             return res.status(409).send('Username already exists.');
         }
-        res.status(500).send('Server error.');
+        res.status(500).send({'Server error.': error.message});
     }
 });
 
