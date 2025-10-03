@@ -124,6 +124,7 @@ app.post('/login', async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );
+        console.log(process.env.JWT_SECRET);
 
         res.cookie('token', token, {
             httpOnly: true,
