@@ -5,6 +5,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import { Client } from 'pg';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -38,8 +40,7 @@ const app = express();
 const port = 3000;
 
 // === Middleware ===
-import path from 'path';
-import { fileURLToPath } from 'url';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
