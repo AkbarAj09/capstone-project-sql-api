@@ -4,8 +4,14 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
-import db from './config/database.js';
 
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import db from path.join(__dirname, 'config', 'database.js');
 dotenv.config();
 
 const app = express();
@@ -16,6 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static('public'));
+
+
+
+
 
 // Middleware cek JWT
 const verifyToken = (req, res, next) => {
