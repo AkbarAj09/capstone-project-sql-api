@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
-import db from './database.js'; // 👉 ambil koneksi dari database.js
+import db from './config/database.js';
 
 dotenv.config();
 
